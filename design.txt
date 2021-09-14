@@ -1,0 +1,36 @@
+SOFTWARE
+    CORE_TIME
+        get current time with datetime
+        use class for time string methods and RTC methods
+        decide if you need to update the clock +
+        make the time string from current date and time
+
+    LED_MATRIX
+        print text to led matrix
+    
+    CHANGING_TIME
+        check if button is pressed
+        check if new text needs displaying and format as before
+        read plus and minus pins and increase or decrease the selected time
+        read select pin and read finish pin
+        update selected time accordingly
+    
+    CHANGING_BRIGHTNESS
+        read LDR analog input
+        read potentiometer input
+        apply logic to find brightness to send to LED matrix
+    
+HARDWARE
+    CORE_TIME AND LED_MATRIX
+        arduino
+        RTC
+        LED matrix
+    
+    CHANGING_TIME
+        buttons + resistors
+        wires
+    
+    CHANGING_BRIGHTNESS
+        LDR
+        POTENTIOMETER
+        more wires and resistors
