@@ -4,8 +4,10 @@
 
 MatrixPrinter mxprinter;
 
-int selectPin = 6;
-int finishPin = 3;
+const int selectPin = 6;
+const int minusPin = 5;
+const int plusPin = 4;
+const int finishPin = 3;
 
 volatile bool changing = false;
 volatile bool just_changed = false;
@@ -43,6 +45,15 @@ void loop() {
     mxprinter.printIfNeeded("^^   ");
     delay(500);
   }
+
+  else {
+    int _plus = digitalRead(plusPin);
+    int _minus = digitalRead(minusPin);
+    if (_plus) mxprinter.changeBrightness(up=true);
+    if (_minus) mxprinter.changeBrightness(up=false);
+  }
+
+
   while (changing) {
     int change_state;
     if (digitalRead(selectPin)) _changing_hour = !_changing_hour;

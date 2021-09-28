@@ -21,11 +21,13 @@ MD_MAX72XX mx = MD_MAX72XX(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 
 String _displayed_message;
 
+int _brightness = 0;
+
 public:
 
   MatrixPrinter() {
     mx.begin();
-    mx.control(MD_MAX72XX::INTENSITY, 0);
+    mx.control(MD_MAX72XX::INTENSITY, _brightness);
     //mx.update(MD_MAX72XX::OFF);
   }
 
@@ -41,6 +43,7 @@ public:
       printString(message);
       _displayed_message = message;
     }
+
     return different;
   }
 
@@ -61,6 +64,22 @@ public:
     mx.update();
 
     //mx.update(MD_MAX72XX::ON);
+  }
+
+  void changeBrightness(up=false)
+  {
+    if (up) {
+      _brightness += 1;
+    }
+
+    else {
+      _brightness -= 1;
+    }
+
+    if (_brightness < 0) _brightness = 0;
+    if (_brightness > 15) _brightness = 15;
+
+    mx.control(MD_MAX72XX::INTENSITY, _brightness);
   }
 
 };
