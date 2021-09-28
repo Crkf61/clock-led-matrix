@@ -2,9 +2,9 @@
 
 class RTCTimeString {
 
-int _selectPin = 6;
-int _minusPin = 5;
-int _plusPin = 4;
+int _selectPin;
+int _minusPin;
+int _plusPin;
 //int _finishPin = 3; //interrupts only work on D2 and D3
 bool _changing_hour = true;
 
@@ -14,7 +14,10 @@ RTC_DS3231 rtc;
 
 public:
 
-  RTCTimeString() {
+  RTCTimeString(int selectpin, int minuspin, int pluspin) {
+    _selectPin = selectpin;
+    _minusPin = minuspin;
+    _plusPin = pluspin;
     if (! rtc.begin()) {
       digitalWrite(LED_BUILTIN, HIGH);
       abort();

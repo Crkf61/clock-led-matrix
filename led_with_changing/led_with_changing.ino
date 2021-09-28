@@ -25,7 +25,7 @@ void setup() {
 
 
 void loop() {
-  RTCTimeString timestring;
+  RTCTimeString timestring(selectPin, minusPin, plusPin);
   String time_message = timestring.getTimeStr();
   bool changed_display = mxprinter.printIfNeeded(time_message);
   digitalWrite(12, changed_display);
