@@ -4,9 +4,15 @@ SOFTWARE
         use class for time string methods and RTC methods
         decide if you need to update the clock +
         make the time string from current date and time
-
+        -- class 'RTCTimeString' handles RTC and formatting into string
+        
     LED_MATRIX
         print text to led matrix
+        -- class 'MatrixPrinter' takes in string of length 5 and prints to LED matrix
+          -> want to make it so that it only updates necessary characters.
+          -> currently, the text flashes whenever it is updated, which is annoying.
+          -> Flashing fixed! simple bug, I was calling mx.begin at the start of
+               each loop. needed to make  mxprinter class definition global not in loop()
     
     CHANGING_TIME
         check if button is pressed
@@ -14,6 +20,8 @@ SOFTWARE
         read plus and minus pins and increase or decrease the selected time
         read select pin and read finish pin
         update selected time accordingly
+        -> implemented! just in main function as this was much easier than a seperate class-
+             the changing time functions need access to the timestring and printing functions
     
     CHANGING_BRIGHTNESS
         read LDR analog input
@@ -34,3 +42,5 @@ HARDWARE
         LDR
         POTENTIOMETER
         more wires and resistors
+
+    Remember- make the soldering clean!!!
