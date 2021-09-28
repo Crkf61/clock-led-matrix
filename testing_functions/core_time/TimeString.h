@@ -1,17 +1,27 @@
+#include "RTClib.h"
 
-class TimeString {
+class RTCTimeString {
 
-DateTime today;
+RTC_DS3231 rtc;
+// rtc connected with i2c pins. For arduino nano use A4 and A5. (see google for more)
 
 public:
 
-  TimeString() {
-
+  RTCTimeString() {
+    if (! rtc.begin()) {
+      digitalWrite(LED_BUILTIN, HIGH);
+      abort();
+    }
+    if (rtc.lostPower()) {
+      Serial.println("RTC lost power, resetting time...");
+      rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+    }
   }
 
-  String getTimeStr(DateTime today)
-  // get current time in nice format
+  String getTimeStr()
+  // get current time in nice format, with blinking colon
   {
+    DateTime today = rtc.now();
     char colon = getColon(today);
     String timeStr = getHourStr(today.hour()) + colon + getMinStr(today.minute()) + '\0';
     return timeStr;
