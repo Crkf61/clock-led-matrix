@@ -13,8 +13,8 @@ volatile bool changing = false;
 volatile bool just_changed = false;
 
 void stop_changing() {
+  just_changed = changing;
   changing = false;
-  just_changed = true;
 }
 
 void setup() {
