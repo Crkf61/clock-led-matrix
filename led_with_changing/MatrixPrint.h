@@ -66,7 +66,7 @@ public:
     //mx.update(MD_MAX72XX::ON);
   }
 
-  void changeBrightness(up=false)
+  void changeBrightness(bool up)
   {
     if (up) {
       _brightness += 1;

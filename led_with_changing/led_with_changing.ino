@@ -49,8 +49,8 @@ void loop() {
   else {
     int _plus = digitalRead(plusPin);
     int _minus = digitalRead(minusPin);
-    if (_plus) mxprinter.changeBrightness(up=true);
-    if (_minus) mxprinter.changeBrightness(up=false);
+    if (_plus) mxprinter.changeBrightness(true);
+    if (_minus) mxprinter.changeBrightness(false);
   }
 
 
