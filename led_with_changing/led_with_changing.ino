@@ -4,9 +4,9 @@
 
 MatrixPrinter mxprinter;
 
-const int selectPin = 6;
+const int selectPin = 4;
 const int minusPin = 5;
-const int plusPin = 4;
+const int plusPin = 6;
 const int finishPin = 3;
 
 volatile bool changing = false;
