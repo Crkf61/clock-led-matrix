@@ -80,6 +80,8 @@ public:
     if (_brightness > 15) _brightness = 15;
 
     mx.control(MD_MAX72XX::INTENSITY, _brightness);
+
+    delay(200);
   }
 
 };
