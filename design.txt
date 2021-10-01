@@ -27,9 +27,15 @@ SOFTWARE
         read LDR analog input
         read potentiometer input
         apply logic to find brightness to send to LED matrix
+        -> didn't do this as i was running out of time.
+        -> instead, change brightness with + and - buttons when not changing the time
     
 HARDWARE
-    CORE_TIME AND LED_MATRIX
+    CORE_TIME
+        arduino
+        RTC
+
+    CORE_LED_MATRIX_CLOCK
         arduino
         RTC
         LED matrix
@@ -39,8 +45,9 @@ HARDWARE
         wires
     
     CHANGING_BRIGHTNESS
-        LDR
-        POTENTIOMETER
-        more wires and resistors
+        (LDR)
+        (POTENTIOMETER)
+        (more wires and resistors)
+        buttons + resistors
 
     Remember- make the soldering clean!!!
