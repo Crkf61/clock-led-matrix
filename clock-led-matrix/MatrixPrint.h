@@ -16,8 +16,6 @@
 class MatrixPrinter {
 
 MD_MAX72XX mx = MD_MAX72XX(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
-// Arbitrary pins
-//MD_MAX72XX mx = MD_MAX72XX(HARDWARE_TYPE, DATA_PIN, CLK_PIN, CS_PIN, MAX_DEVICES);
 
 String _displayed_message;
 
@@ -28,7 +26,6 @@ public:
   MatrixPrinter() {
     mx.begin();
     mx.control(MD_MAX72XX::INTENSITY, _brightness);
-    //mx.update(MD_MAX72XX::OFF);
   }
 
   bool printIfNeeded(String message)
@@ -51,7 +48,6 @@ public:
   // print string of length 5 to led matrix
   {
     mx.clear(3);
-    //mx.update(MD_MAX72XX::OFF);
     mx.setChar((4*COL_SIZE-1), message[0]);
     mx.clear(2);
     mx.setChar((3*COL_SIZE+1), message[1]);
@@ -62,8 +58,6 @@ public:
     mx.setChar(COL_SIZE-4, message[4]);
 
     mx.update();
-
-    //mx.update(MD_MAX72XX::ON);
   }
 
   void changeBrightness(bool up)
