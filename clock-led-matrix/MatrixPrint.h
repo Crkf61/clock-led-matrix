@@ -31,10 +31,7 @@ public:
   bool printIfNeeded(String message)
   // only print if message is different to _displayed_message
   {
-    bool different = false;
-    for (int i=0; i<5; i++) {
-      if (message[i] != _displayed_message[i]) different = true;
-    }
+    bool different = strncmp(_displayed_message, str2, 5) != 0;
 
     if (different) {
       printString(message);
